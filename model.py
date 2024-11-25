@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from utils.filter import layer_filter, getPeakData,getFitData
 from torch.utils.tensorboard import SummaryWriter
 
-yModifier = 190
+yModifier = 200
 
 def getData(pth:str):
     x = np.load(pth+'_x.npy')
@@ -17,6 +17,7 @@ def getData(pth:str):
 def getxy(pth:str,particlelimint:int):
     x,y,targetLayer = getData(pth)
     x,y = layer_filter(x,y,targetLayer)
+    #TODO: Varry particle limit
     x = x[:particlelimint]
     y = y[:particlelimint]
     x = getFitData(x)#x = getPeakData(x,targetLayer)
@@ -44,19 +45,22 @@ def plotEvaluation(preds,targets,writer,epoch):
 class Net(nn.Module):
     def __init__(self,batch_size:int = 128):
         super(Net, self).__init__()
-        self.fc1 = nn.Linear(3, 1)
+        self.fc1 = nn.Linear(3, 16)
+        self.act1 = nn.ReLU()
+        self.fc2 = nn.Linear(16, 1)
         self.batch_size = batch_size
 
     def forward(self, x):
         x = self.fc1(x)
+        x = self.act1(x)
+        x = self.fc2(x)
         return x
     def compile(self,optimizer,loss):
         self.optimizer = optimizer(self.parameters())
         self.loss = loss
     
-    def fit(self,paths,validationPaths):
+    def fit(self,paths,validationPaths,writer):
         particleLimit = 200
-        writer = SummaryWriter()
         np.random.shuffle(paths)
         trainsteps = len(paths)//self.batch_size
         for epoch in range(100):
@@ -101,14 +105,15 @@ class Net(nn.Module):
                 valLoss+= loss.item()
             writer.add_scalar('Validation/Loss', valLoss/valsteps, epoch)
             print(f'Validation Loss: {valLoss/valsteps:.4f}\n') 
-            plotEvaluation(np.array(preds),np.array(targets),writer,epoch)
+            plotEvaluation(np.array(preds)*yModifier,np.array(targets)*yModifier,writer,epoch)
             writer.close()
 
 if __name__ == '__main__':
-    net = Net()
+    net = Net(batch_size=128)
     net.compile(optimizer = torch.optim.Adam,loss = nn.MSELoss())
-    #TODO: Create more WPT-> 110,120,130,140,160,170,180,190
+    writer = SummaryWriter()
     wptList = [100,150,175,200]
     allPossiblePath = np.array([f'data/wpt_{wpt}/{i}' for wpt in wptList for i in range(1,850)])
     validationPaths = np.array([f'data/wpt_{wpt}/{i}' for wpt in wptList for i in range(850,1000)])
-    net.fit(allPossiblePath,validationPaths)
+    writer.add_graph(net,torch.rand(128,200,3))
+    net.fit(allPossiblePath,validationPaths,writer)

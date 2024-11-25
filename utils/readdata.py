@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 
 rootF = '/home/bdudas/PCT_DATA/output/'
-wpts = [100,120,150,160,175,200]
+wpts = [130,140,170,180,190]
 dataFolders = [f'{rootF}/wpt_{wpt}_psa' for wpt in wpts]
 
 def padarray(A,size = 41):
@@ -31,6 +31,7 @@ def main(sampleID,wpt):
     np.save(f'{savePath}_y.npy', df_psa.Ekine.values)
 
 if __name__ == '__main__':
+    print('Starting...')
     for wpt in wpts:
         for sampleID in range(1,1001):
             main(sampleID,wpt)
