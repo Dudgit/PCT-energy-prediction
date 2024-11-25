@@ -24,6 +24,7 @@ def main(sampleID,wpt):
     df_psa = psa.groupby('EventID').max('Ekine').loc[:,['Ekine']]
     df_psa.reset_index(inplace=True)
     df_psa = df_psa[df_psa.EventID.isin(hit.eventID)]
+
     savePath = f'data/wpt_{wpt}/{sampleID}'
     edep_arrays = [padarray(group['edep'].values) for _, group in hit.groupby('eventID')]
     np.save(f'{savePath}_x.npy', edep_arrays)
