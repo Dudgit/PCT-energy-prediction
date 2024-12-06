@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 
 rootF = '/home/bdudas/PCT_DATA/output/'
-wpts = [130,140,170,180,190]
+wpts = [110]
 dataFolders = [f'{rootF}/wpt_{wpt}_psa' for wpt in wpts]
 
 def padarray(A,size = 41):

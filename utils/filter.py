@@ -20,7 +20,6 @@ def getFitData(x):
     x1 = np.argmax(x,axis=1)
     idxhelp = np.arange(x.shape[0]) 
     tmp = x[idxhelp,x1]
-    
     x2 = x[idxhelp,x1-1]
     x3 = x[idxhelp,x1+1]
-    return np.column_stack((x1,x2/tmp,x3/tmp))
+    return np.column_stack((x1,tmp,x2,x3))
