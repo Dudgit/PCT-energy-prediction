@@ -18,7 +18,8 @@ def getxy(pth:str,particlelimint:int):
     x,y = layer_filter(x,y,targetLayer)
     x = x[:particlelimint]
     y = y[:particlelimint]
-    x = getFitData(x)#x = getPeakData(x,targetLayer)
+    x = getFitData(x)
+    #x = getPeakData(x,targetLayer)
     #realLimit = np.random.randint(170,particlelimint)
     #x,y = x[:realLimit],y[:realLimit]
     #x = np.pad(x,((0,particlelimint-x.shape[0]),(0,0)),'constant',constant_values=(0,0))
@@ -39,6 +40,7 @@ def getSingleBatch(bidxs,paths:str = 'None',particleLimit:int = 200):
 def plotEvaluation(preds,targets,writer,epoch):
     fig = plt.figure()
     plt.hist2d(preds.flatten(),targets.flatten(),bins=100)
+    plt.plot([np.min(preds.flatten()),200],[np.min(preds.flatten()),200],color='red',linestyle='--')
     plt.xlabel('Predictions')
     plt.ylabel('Targets')
     plt.title('Predictions vs Targets')
@@ -48,7 +50,7 @@ def plotEvaluation(preds,targets,writer,epoch):
 def plotCroppedEvaluation(preds,targets,writer,epoch):
     fig = plt.figure()
     plt.hist2d(preds.flatten(),targets.flatten(),bins=100)
-    plt.plot([90,200],[90,200],color='red',linestyle='--')
+    plt.plot([100,200],[100,200],color='red',linestyle='--')
     plt.xlabel('Predictions')
     plt.ylabel('Targets')
     plt.title('Predictions vs Targets')
@@ -58,11 +60,11 @@ def plotCroppedEvaluation(preds,targets,writer,epoch):
     writer.add_figure('Validation/Hist2D_cropped',fig,epoch)
 
 class Net(nn.Module):
-    def __init__(self,batch_size:int = 128):
+    def __init__(self,batch_size:int = 128,input_size:int = 4):
         super(Net, self).__init__()
-        self.fc1 = nn.Linear(4, 32)
+        self.fc1 = nn.Linear(input_size, 16)
         self.act1 = nn.ReLU()
-        self.fc2 = nn.Linear(32, 1)
+        self.fc2 = nn.Linear(16, 1)
         self.batch_size = batch_size
 
     def forward(self, x): 
@@ -71,15 +73,15 @@ class Net(nn.Module):
         x = self.fc2(x)
         return x
 
-    def compile(self,optimizer,loss):
-        self.optimizer = optimizer(self.parameters())
+    def compile(self,optimizer,loss,optmizer_params = {}):
+        self.optimizer = optimizer(self.parameters(*optmizer_params))
         self.loss = loss
     
-    def fit(self,paths,validationPaths,writer,device,epochs = 100):
+    def fit(self,paths,validationPaths,writer,device,epochs = 100,initial_epoch = 0):
         particleLimit = 200
         np.random.shuffle(paths)
         trainsteps = len(paths)//self.batch_size
-        for epoch in range(epochs):
+        for epoch in range(initial_epoch,initial_epoch+epochs):
             trainLoss = 0.0
             availablePaths = paths.copy()
             maxDiff = 0.0
@@ -108,6 +110,7 @@ class Net(nn.Module):
             self.validation(validationPaths,writer,epoch)
     
     def validation(self,valPaths,writer,epoch):
+        maeLoss = nn.L1Loss()
         with torch.no_grad():
             particleLimit = 200
             valsteps = len(valPaths)//self.batch_size
@@ -136,23 +139,31 @@ class Net(nn.Module):
             preds = np.array(preds)*yModifier
             writer.add_scalar('Validation/Loss', valLoss/valsteps, epoch)
             print(f'Validation Loss: {valLoss/valsteps:.4f}\n') 
-            writer.add_scalar('Validation/MaxDiff', maxdiff.item()*yModifier, epoch)
-            writer.add_scalar('Validation/MAE', np.mean(np.abs(targets.reshape(-1)-preds.reshape(-1))), epoch)
+            writer.add_scalar('Validation/MaxDiff', yModifier*maxdiff.item(), epoch)
+            writer.add_scalar('Validation/MAE',maeLoss(torch.from_numpy(preds).view(-1),torch.from_numpy(targets).view(-1)).item(),epoch)
+            writer.add_histogram('Validation/Predictions',preds,epoch)
+            writer.add_histogram('Validation/Targets',targets,epoch)
             plotEvaluation(preds,targets,writer,epoch)
             plotCroppedEvaluation(preds,targets,writer,epoch)
             writer.close()
 
 if __name__ == '__main__':
     bSize = 512
-    epochs = 1000
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    net = Net(batch_size=bSize)
-    net.compile(optimizer = torch.optim.Adam,loss = nn.L1Loss())
-    writer = SummaryWriter(comment='More neurons')
-    #writer.add_custom_scalars({'Batch size':bSize,'Optimizer':'Adam','Loss':'MSELoss','MAE':'L1Loss','Y Modifier':yModifier,'epoch':epochs}) 
+    epochs = 500
+    device = torch.device('cuda:2' if torch.cuda.is_available() else 'cpu')
+    sampleData = 'data/wpt_100/1'
+    x,y = getxy(sampleData,200)
+    plim,inpSize = x.shape
+    net = Net(batch_size=bSize,input_size=inpSize)
+    net.compile(optimizer = torch.optim.Adam,loss = nn.MSELoss())
+    writer = SummaryWriter(comment='Best learning with more steps')
     wptList = [100,110,120,130,140,150,160,170,180,190,200]
     allPossiblePath = np.array([f'data/wpt_{wpt}/{i}' for wpt in wptList for i in range(1,850)])
     validationPaths = np.array([f'data/wpt_{wpt}/{i}' for wpt in wptList for i in range(850,1000)])
-    writer.add_graph(net,torch.rand(bSize,200,4))
+    writer.add_graph(net,torch.rand(bSize,plim,inpSize))
     net = net.to(device)
     net.fit(allPossiblePath,validationPaths,writer,device,epochs)
+
+    # Fine tune:
+    #net.compile(optimizer = torch.optim.Adam,loss = nn.L1Loss(),optmizer_params = {'lr':1e-4})
+    #net.fit(allPossiblePath,validationPaths,writer,device,epochs,epochs)

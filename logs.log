@@ -1,1 +1,508 @@
-2024-12-06 10:44:02.728357: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+2024-12-12 09:00:44.294173: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.10.1
+Epoch: 0 Loss: 0.8164
+Validation Loss: 0.6897
+
+Epoch: 1 Loss: 0.5765
+Validation Loss: 0.4629
+
+Epoch: 2 Loss: 0.3688
+Validation Loss: 0.2653
+
+Epoch: 3 Loss: 0.1898
+Validation Loss: 0.1160
+
+Epoch: 4 Loss: 0.0714
+Validation Loss: 0.0341
+
+Epoch: 5 Loss: 0.0199
+Validation Loss: 0.0103
+
+Epoch: 6 Loss: 0.0081
+Validation Loss: 0.0073
+
+Epoch: 7 Loss: 0.0071
+Validation Loss: 0.0068
+
+Epoch: 8 Loss: 0.0065
+Validation Loss: 0.0060
+
+Epoch: 9 Loss: 0.0052
+Validation Loss: 0.0040
+
+Epoch: 10 Loss: 0.0034
+Validation Loss: 0.0026
+
+Epoch: 11 Loss: 0.0023
+Validation Loss: 0.0019
+
+Epoch: 12 Loss: 0.0016
+Validation Loss: 0.0014
+
+Epoch: 13 Loss: 0.0013
+Validation Loss: 0.0011
+
+Epoch: 14 Loss: 0.0010
+Validation Loss: 0.0009
+
+Epoch: 15 Loss: 0.0008
+Validation Loss: 0.0007
+
+Epoch: 16 Loss: 0.0007
+Validation Loss: 0.0006
+
+Epoch: 17 Loss: 0.0005
+Validation Loss: 0.0005
+
+Epoch: 18 Loss: 0.0004
+Validation Loss: 0.0004
+
+Epoch: 19 Loss: 0.0003
+Validation Loss: 0.0003
+
+Epoch: 20 Loss: 0.0003
+Validation Loss: 0.0003
+
+Epoch: 21 Loss: 0.0002
+Validation Loss: 0.0002
+
+Epoch: 22 Loss: 0.0002
+Validation Loss: 0.0002
+
+Epoch: 23 Loss: 0.0002
+Validation Loss: 0.0002
+
+Epoch: 24 Loss: 0.0002
+Validation Loss: 0.0001
+
+Epoch: 25 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 26 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 27 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 28 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 29 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 30 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 31 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 32 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 33 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 34 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 35 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 36 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 37 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 38 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 39 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 40 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 41 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 42 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 43 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 44 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 45 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 46 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 47 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 48 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 49 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 50 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 51 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 52 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 53 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 54 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 55 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 56 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 57 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 58 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 59 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 60 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 61 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 62 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 63 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 64 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 65 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 66 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 67 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 68 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 69 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 70 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 71 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 72 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 73 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 74 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 75 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 76 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 77 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 78 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 79 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 80 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 81 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 82 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 83 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 84 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 85 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 86 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 87 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 88 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 89 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 90 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 91 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 92 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 93 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 94 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 95 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 96 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 97 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 98 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 99 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 100 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 101 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 102 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 103 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 104 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 105 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 106 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 107 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 108 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 109 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 110 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 111 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 112 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 113 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 114 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 115 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 116 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 117 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 118 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 119 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 120 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 121 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 122 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 123 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 124 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 125 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 126 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 127 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 128 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 129 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 130 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 131 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 132 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 133 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 134 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 135 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 136 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 137 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 138 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 139 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 140 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 141 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 142 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 143 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 144 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 145 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 146 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 147 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 148 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 149 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 150 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 151 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 152 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 153 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 154 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 155 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 156 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 157 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 158 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 159 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 160 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 161 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 162 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 163 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 164 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 165 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 166 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 167 Loss: 0.0001
+Validation Loss: 0.0001
+
+Epoch: 168 Loss: 0.0001
+Validation Loss: 0.0001
+

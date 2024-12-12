@@ -22,4 +22,9 @@ def getFitData(x):
     tmp = x[idxhelp,x1]
     x2 = x[idxhelp,x1-1]
     x3 = x[idxhelp,x1+1]
-    return np.column_stack((x1,tmp,x2,x3))
+    return np.column_stack((x1,x2/tmp,x3/tmp))
+
+def getFitData_moreData(x,targetlayer):
+    x1 = np.argmax(x,axis=1)
+    prevData = x[:,targetlayer-10:targetlayer+1]
+    return np.column_stack((x1/x.shape[1],prevData))
