@@ -1,2 +1,5 @@
 data
 runs
+legacy
+runs_old
+__pycache__
