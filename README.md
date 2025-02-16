@@ -1,5 +1,5 @@
 # Energy Prediction for Proton Computed Tomography
-This is a repository made by the Budapest team of the PcT collaboration.  
+This is a repository made by the Budapest team of the pCT collaboration.  
 ## configs
 This folder contains all the yaml files for the project configurations. It's important to note that the project is structured in a way, that it will run with multiple configurations.
 -  In the const.yaml I store data configurations that I usually only change by hand if I overwrite something in the code base.
