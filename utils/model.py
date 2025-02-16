@@ -62,7 +62,7 @@ class Net(nn.Module):
             for step in range(trainsteps):
         
                 bidxs = np.random.choice(len(availablePaths),self.batch_size)
-                inputX,inputY = getSingleBatch(bidxs,availablePaths)
+                inputX,inputY = getSingleBatch(bidxs,availablePaths,particleLimit=self.particleLimit)
                 availablePaths = np.delete(availablePaths,bidxs)
                 
                 inputX = inputX.float().to(self.device)

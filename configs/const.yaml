@@ -1,9 +1,9 @@
 trainingParams:
-  num_epochs: ???
+  num_epochs: 500
+  numParticles: ???
 modelParams:
   batch_size: 512
   hidden_size: ???
   input_size: 3
 
-numParticles: 200
 wptList : [110,120,130,140,150,160,170,180,190,200]

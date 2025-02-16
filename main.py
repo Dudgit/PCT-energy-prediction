@@ -29,7 +29,7 @@ def get_all_combinations(nested_dict):
 
 def main(config,device:str ='cpu'):
     net = Net(**config.modelParams)
-    net.compile(optimizer = torch.optim.Adam,loss = nn.MSELoss(),device=device)
+    net.compile(optimizer = torch.optim.Adam,loss = nn.MSELoss(),device=device,particleLimit=config.trainingParams.numParticles)
     logMetadata(net,config)
     
     #TODO: Data generator instead of storing paths
